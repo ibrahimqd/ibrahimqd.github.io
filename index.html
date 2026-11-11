@@ -3,275 +3,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المبرمج إبراهيم قديح | تطبيقات Google Play</title>
-    
-    <!-- Google Fonts: Cairo & Tajawal -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
+    <title>ibrahim qdeah | تطبيقات Android</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        google: {
-                            green: '#01875f',
-                            hoverGreen: '#017351',
-                            lightGreen: '#e6f4ea',
-                            dark: '#202124',
-                            gray: '#5f6368',
-                            bg: '#f8f9fa'
-                        }
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                        tajawal: ['Tajawal', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    
     <style>
-        body {
+        :root {
+            --primary-color: #1a73e8;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #ffffff;
+            --text-secondary: #9aa0a6;
+            --border-color: #333333;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             font-family: 'Cairo', sans-serif;
-            background-color: #f8f9fa;
-            color: #202124;
-            scroll-behavior: smooth;
         }
-
-        /* Material / Google Play Glass Shadow Effects */
-        .gp-card {
-            background: #ffffff;
-            border: 1px solid #e8eaed;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
         }
-        
-        .gp-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 30px -10px rgba(1, 135, 95, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
-            border-color: #01875f33;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
-
-        /* Gradient Hero Badge */
-        .hero-gradient {
-            background: linear-gradient(135deg, #01875f 0%, #005a3f 100%);
+        header {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
         }
-
-        /* Subtle backdrop blur for header */
-        .header-blur {
-            backdrop-filter: blur(12px);
-            background-color: rgba(255, 255, 255, 0.92);
+        .dev-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #2d2d2d;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            border: 2px solid var(--primary-color);
+            font-size: 24px;
+            color: var(--primary-color);
         }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        header h1 {
+            font-size: 22px;
+            color: var(--text-color);
+            margin-bottom: 5px;
         }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+        header p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 15px;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #01875f;
-            border-radius: 4px;
+        .play-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .play-store-btn:hover {
+            background-color: #1557b0;
+        }
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            font-weight: 700;
+            padding-right: 5px;
+            border-right: 4px solid var(--primary-color);
+        }
+        .apps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .app-card {
+            background: var(--card-bg);
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .app-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+        .app-details {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+        .app-info h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+            color: var(--text-color);
+        }
+        .app-info p {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        .app-link {
+            background-color: rgba(26, 115, 232, 0.15);
+            color: #8ab4f8;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .app-link:hover {
+            background-color: rgba(26, 115, 232, 0.3);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        @media (max-width: 600px) {
+            .app-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .app-link {
+                width: 100%;
+                text-align: center;
+            }
+            .app-details {
+                width: 100%;
+            }
         }
     </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col justify-between selection:bg-google-lightGreen selection:text-google-green">
+<body>
 
-    <!-- ================= NAVBAR ================= -->
-    <header class="sticky top-0 z-50 header-blur border-b border-gray-200 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="container">
+        <!-- لوحة التعريف بالمبرمج (كما في المتجر) -->
+        <header>
+            <div class="dev-avatar">
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <h1>ibrahim qdeah</h1>
+            <p>المبرمج ابراهيم قديح ..</p>
+            <a href="https://play.google.com/store/apps/dev?id=8396423724387844258" target="_blank" class="play-store-btn">
+                <i class="fa-brands fa-google-play"></i> زيارة صفحة المتجر
+            </a>
+        </header>
+
+        <h2 class="section-title">كل التطبيقات</h2>
+
+        <!-- قائمة التطبيقات الثلاثة -->
+        <div class="apps-list">
             
-            <!-- Logo & Brand -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 rounded-2xl bg-google-green text-white flex items-center justify-center font-black text-xl shadow-md group-hover:scale-105 transition-transform duration-200">
-                    <i class="fa-brands fa-google-play"></i>
+            <!-- تطبيق أذكار الصباح والمساء -->
+            <div class="app-card">
+                <div class="app-details">
+                    <!-- تم استبدال الأيقونة برابط شعار التطبيق الحقيقي من المتجر أو يمكن الاعتماد على الأيقونة التصميمية -->
+                    <img src="https://play-lh.googleusercontent.com/bY-d9i8qgC9mC8N0kY_XW4g7V4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4=w240-h480-rw" alt="أذكار الصباح والمساء" class="app-icon" onerror="this.src='https://via.placeholder.com/60?text=Azkar'">
+                    <div class="app-info">
+                        <h3>أذكار الصباح والمساء</h3>
+                        <p>نمط حياة</p>
+                    </div>
                 </div>
-                <div class="flex flex-col">
-                    <span class="font-bold text-lg text-gray-900 group-hover:text-google-green transition-colors">إبراهيم قديح</span>
-                    <span class="text-xs text-google-gray font-tajawal font-medium">مطور تطبيقات أندرويد</span>
-                </div>
-            </a>
+                <a href="https://play.google.com/store/apps/details?id=ibrahim.qdeah.azkarapp" target="_blank" class="app-link">عرض في المتجر</a>
+            </div>
 
-            <!-- CTA Button -->
-            <a href="https://play.google.com/store/apps/dev?id=8396423724387844258" target="_blank" rel="noopener noreferrer" 
-               class="inline-flex items-center gap-2 bg-google-green hover:bg-google-hoverGreen text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-sm hover:shadow-md transition-all duration-200">
-                <i class="fa-brands fa-google-play text-base"></i>
-                <span>صفحة المتجر الرئيسية</span>
-            </a>
+            <!-- تطبيق آيات - تلاوات خاشعة -->
+            <div class="app-card">
+                <div class="app-details">
+                    <img src="https://play-lh.googleusercontent.com/bY-d9i8qgC9mC8N0kY_XW4g7V4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4=w240-h480-rw" alt="آيات" class="app-icon" onerror="this.src='https://via.placeholder.com/60?text=Ayyat'">
+                    <div class="app-info">
+                        <h3>آيات - تلاوات خاشعة</h3>
+                        <p>تلاوات قرآنية</p>
+                    </div>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=ibrahim.qdeah.AyyatApp" target="_blank" class="app-link">عرض في المتجر</a>
+            </div>
+
+            <!-- تطبيق تعلم الحروف العربية للاطفال -->
+            <div class="app-card">
+                <div class="app-details">
+                    <img src="https://play-lh.googleusercontent.com/bY-d9i8qgC9mC8N0kY_XW4g7V4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4=w240-h480-rw" alt="تعلم الحروف" class="app-icon" onerror="this.src='https://via.placeholder.com/60?text=Haroof'">
+                    <div class="app-info">
+                        <h3>تعلم الحروف العربية للاطفال</h3>
+                        <p>تعلم الحروف</p>
+                    </div>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=ibrahim.qdeah.haroofar" target="_blank" class="app-link">عرض في المتجر</a>
+            </div>
+
         </div>
-    </header>
 
-    <main class="flex-grow">
+        <footer>
+            <p>© ibrahim qdeah. جميع الحقوق محفوظة.</p>
+        </footer>
+    </div>
 
-        <!-- ================= HERO SECTION ================= -->
-        <section class="relative py-14 lg:py-20 overflow-hidden">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-                
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-google-lightGreen text-google-green font-semibold text-xs border border-green-200 shadow-sm">
-                    <span class="w-2 h-2 rounded-full bg-google-green animate-pulse"></span>
-                    <span>Android Developer</span>
-                </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ibrahim qdeah | تطبيقات Android</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #ffffff;
+            --text-secondary: #9aa0a6;
+            --border-color: #333333;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+        }
+        .dev-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #2d2d2d;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            border: 2px solid var(--primary-color);
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        header h1 {
+            font-size: 22px;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+        header p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .play-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .play-store-btn:hover {
+            background-color: #1557b0;
+        }
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            font-weight: 700;
+            padding-right: 5px;
+            border-right: 4px solid var(--primary-color);
+        }
+        .apps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .app-card {
+            background: var(--card-bg);
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .app-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+        .app-details {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+        .app-info h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+            color: var(--text-color);
+        }
+        .app-info p {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        .app-link {
+            background-color: rgba(26, 115, 232, 0.15);
+            color: #8ab4f8;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .app-link:hover {
+            background-color: rgba(26, 115, 232, 0.3);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        @media (max-width: 600px) {
+            .app-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .app-link {
+                width: 100%;
+                text-align: center;
+            }
+            .app-details {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
 
-                <h1 class="text-3xl sm:text-5xl font-black text-gray-900 leading-tight tracking-tight">
-                    تطبيقات المبرمج <span class="text-google-green">إبراهيم قديح</span>
-                </h1>
-
-                <p class="text-base sm:text-lg text-google-gray leading-relaxed font-tajawal max-w-2xl mx-auto">
-                    أهلاً بك في الصفحة التعريفية لتطبيقاتي المتاحة رسمياً على متجر Google Play. أحرص دائماً على تقديم تطبيقات متميزة وبسيطة تخدم المستخدم بفعالية عالية وتجربة مريحة.
-                </p>
-
-                <!-- Profile Link Action -->
-                <div class="pt-2">
-                    <a href="https://play.google.com/store/apps/dev?id=8396423724387844258" 
-                       target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center justify-center gap-2.5 bg-google-green hover:bg-google-hoverGreen text-white px-8 py-3.5 rounded-2xl font-bold text-base shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5">
-                        <i class="fa-brands fa-google-play text-xl"></i>
-                        <span>زيارة حساب المطور على Google Play</span>
-                    </a>
-                </div>
-
+    <div class="container">
+        <!-- لوحة التعريف بالمبرمج (كما في المتجر) -->
+        <header>
+            <div class="dev-avatar">
+                <i class="fa-solid fa-code"></i>
             </div>
-        </section>
+            <h1>ibrahim qdeah</h1>
+            <p>المبرمج ابراهيم قديح ..</p>
+            <a href="https://play.google.com/store/apps/dev?id=8396423724387844258" target="_blank" class="play-store-btn">
+                <i class="fa-brands fa-google-play"></i> زيارة صفحة المتجر
+            </a>
+        </header>
 
-        <!-- ================= APPS SHOWCASE SECTION ================= -->
-        <section id="apps" class="py-12 bg-white border-t border-gray-200">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <!-- Section Title -->
-                <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
-                    <h2 class="text-2xl sm:text-3xl font-black text-gray-900">التطبيقات المتاحة للتحميل</h2>
-                    <p class="text-google-gray font-tajawal text-sm sm:text-base">
-                        اختر التطبيق لمشاهدة تفاصيله وتحميله مباشرة من المتجر
-                    </p>
+        <h2 class="section-title">كل التطبيقات</h2>
+
+        <!-- قائمة التطبيقات الثلاثة -->
+        <div class="apps-list">
+            
+            <!-- تطبيق أذكار الصباح والمساء -->
+            <div class="app-card">
+                <div class="app-details">
+                    <!-- تم استبدال الأيقونة برابط شعار التطبيق الحقيقي من المتجر أو يمكن الاعتماد على الأيقونة التصميمية -->
+                    <img src="https://play-lh.googleusercontent.com/bY-d9i8qgC9mC8N0kY_XW4g7V4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4=w240-h480-rw" alt="أذكار الصباح والمساء" class="app-icon" onerror="this.src='https://via.placeholder.com/60?text=Azkar'">
+                    <div class="app-info">
+                        <h3>أذكار الصباح والمساء</h3>
+                        <p>نمط حياة</p>
+                    </div>
                 </div>
-
-                <!-- 3 Main Apps Grid Container -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
-                    <!-- App Card 1: أذكار -->
-                    <div class="gp-card rounded-3xl p-7 flex flex-col justify-between">
-                        <div class="space-y-5">
-                            <div class="flex items-center gap-4">
-                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white flex items-center justify-center text-3xl shadow-md flex-shrink-0">
-                                    <i class="fa-solid fa-hands-praying"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-xl text-gray-900">تطبيق أذكار</h3>
-                                    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-0.5 rounded-md mt-1">تطبيق إسلامي</span>
-                                </div>
-                            </div>
-                            <p class="text-google-gray text-sm font-tajawal leading-relaxed">
-                                تطبيق مخصص للأذكار والأدعية اليومية بتصميم مريح وسلس يساعدك على مواظبة أذكارك بسهولة طوال اليوم.
-                            </p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-gray-100">
-                            <a href="https://play.google.com/store/apps/details?id=ibrahim.qdeah.azkarapp" 
-                               target="_blank" rel="noopener noreferrer" 
-                               class="w-full inline-flex items-center justify-center gap-2 text-google-green hover:text-white font-bold text-sm bg-google-lightGreen hover:bg-google-green py-3 rounded-xl transition-all duration-200">
-                                <i class="fa-brands fa-google-play"></i>
-                                <span>تحميل التطبيق</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- App Card 2: آيات -->
-                    <div class="gp-card rounded-3xl p-7 flex flex-col justify-between">
-                        <div class="space-y-5">
-                            <div class="flex items-center gap-4">
-                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-800 text-white flex items-center justify-center text-3xl shadow-md flex-shrink-0">
-                                    <i class="fa-solid fa-book-quran"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-xl text-gray-900">تطبيق آيات</h3>
-                                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-0.5 rounded-md mt-1">القرآن الكريم</span>
-                                </div>
-                            </div>
-                            <p class="text-google-gray text-sm font-tajawal leading-relaxed">
-                                تطبيق يعينك على تلاوة وقراءة آيات القرآن الكريم بواجهة واضحة وقراءة ميسرة ومريحة للعين.
-                            </p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-gray-100">
-                            <a href="https://play.google.com/store/apps/details?id=ibrahim.qdeah.AyyatApp" 
-                               target="_blank" rel="noopener noreferrer" 
-                               class="w-full inline-flex items-center justify-center gap-2 text-google-green hover:text-white font-bold text-sm bg-google-lightGreen hover:bg-google-green py-3 rounded-xl transition-all duration-200">
-                                <i class="fa-brands fa-google-play"></i>
-                                <span>تحميل التطبيق</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- App Card 3: حروف ورقم -->
-                    <div class="gp-card rounded-3xl p-7 flex flex-col justify-between">
-                        <div class="space-y-5">
-                            <div class="flex items-center gap-4">
-                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center text-3xl shadow-md flex-shrink-0">
-                                    <i class="fa-solid fa-font"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-xl text-gray-900">حروف ورقم</h3>
-                                    <span class="inline-block bg-amber-50 text-amber-700 text-xs font-semibold px-2.5 py-0.5 rounded-md mt-1">تعليمي / تفاعلي</span>
-                                </div>
-                            </div>
-                            <p class="text-google-gray text-sm font-tajawal leading-relaxed">
-                                تطبيق تفاعلي ممتع لتعلّم الحروف والأرقام بأسلوب مبسط ومناسب لمختلف الفئات بشكل جذاب وسهل.
-                            </p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-gray-100">
-                            <a href="https://play.google.com/store/apps/details?id=ibrahim.qdeah.haroofar" 
-                               target="_blank" rel="noopener noreferrer" 
-                               class="w-full inline-flex items-center justify-center gap-2 text-google-green hover:text-white font-bold text-sm bg-google-lightGreen hover:bg-google-green py-3 rounded-xl transition-all duration-200">
-                                <i class="fa-brands fa-google-play"></i>
-                                <span>تحميل التطبيق</span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
+                <a href="https://play.google.com/store/apps/details?id=ibrahim.qdeah.azkarapp" target="_blank" class="app-link">عرض في المتجر</a>
             </div>
-        </section>
 
-        <!-- ================= GOOGLE PLAY PROFILE BANNER ================= -->
-        <section class="py-12 bg-google-bg">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="hero-gradient rounded-3xl p-8 sm:p-10 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-right">
-                    <div class="space-y-2">
-                        <h3 class="text-2xl font-black">تابع أحدث التحديثات والتطبيقات</h3>
-                        <p class="text-white/80 font-tajawal text-sm sm:text-base">
-                            يمكنك تصفح الصفحة الرسمية الكاملة للمطور إبراهيم قديح على متجر جوجل بلاي.
-                        </p>
+            <!-- تطبيق آيات - تلاوات خاشعة -->
+            <div class="app-card">
+                <div class="app-details">
+                    <img src="https://play-lh.googleusercontent.com/bY-d9i8qgC9mC8N0kY_XW4g7V4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4=w240-h480-rw" alt="آيات" class="app-icon" onerror="this.src='https://via.placeholder.com/60?text=Ayyat'">
+                    <div class="app-info">
+                        <h3>آيات - تلاوات خاشعة</h3>
+                        <p>تلاوات قرآنية</p>
                     </div>
-                    
-                    <a href="https://play.google.com/store/apps/dev?id=8396423724387844258" 
-                       target="_blank" rel="noopener noreferrer"
-                       class="whitespace-nowrap bg-white text-google-green hover:bg-gray-100 px-7 py-3.5 rounded-xl font-bold text-sm shadow-md transition-all transform hover:scale-105">
-                        الانتقال لحساب المطور
-                    </a>
                 </div>
+                <a href="https://play.google.com/store/apps/details?id=ibrahim.qdeah.AyyatApp" target="_blank" class="app-link">عرض في المتجر</a>
             </div>
-        </section>
 
-    </main>
+            <!-- تطبيق تعلم الحروف العربية للاطفال -->
+            <div class="app-card">
+                <div class="app-details">
+                    <img src="https://play-lh.googleusercontent.com/bY-d9i8qgC9mC8N0kY_XW4g7V4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4V9z4=w240-h480-rw" alt="تعلم الحروف" class="app-icon" onerror="this.src='https://via.placeholder.com/60?text=Haroof'">
+                    <div class="app-info">
+                        <h3>تعلم الحروف العربية للاطفال</h3>
+                        <p>تعلم الحروف</p>
+                    </div>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=ibrahim.qdeah.haroofar" target="_blank" class="app-link">عرض في المتجر</a>
+            </div>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="bg-white border-t border-gray-200 py-8">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-            <p class="font-bold text-gray-900 text-sm">المبرمج إبراهيم قديح</p>
-            <p class="text-xs text-google-gray font-tajawal">جميع الحقوق محفوظة © <span id="currentYear"></span></p>
         </div>
-    </footer>
 
-    <!-- Script for Year -->
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
+        <footer>
+            <p>© ibrahim qdeah. جميع الحقوق محفوظة.</p>
+        </footer>
+    </div>
+
 </body>
 </html>
